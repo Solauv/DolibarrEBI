@@ -3340,8 +3340,9 @@ class Form
 		);
 		$reshook = $hookmanager->executeHooks('selectProductsListWhere', $parameters); // Note that $action and $object may have been modified by hook
 		$sql .= $hookmanager->resPrint;
+
 		// Add criteria on ref/label
-		if ($filterkey != '') {
+		if ($reshook === 0 && $filterkey != '') {
 			$sqlSupplierSearch = '';
 
 			$sql .= ' AND (';
