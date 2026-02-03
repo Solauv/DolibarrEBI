@@ -806,7 +806,7 @@ class FormSetupItem
 		}
 
 		// Modify constant only if key was posted (avoid resetting key to the null value)
-		if ($this->type != 'title') {
+		if ($this->type != 'title' && GETPOSTISSET($this->confKey)) {
 			if (preg_match('/category:/', $this->type)) {
 				if (GETPOSTINT($this->confKey) == '-1') {
 					$val_const = '';
